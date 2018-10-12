@@ -1,6 +1,7 @@
 package cn.zenliu.jnr.example;
 
 
+import jnr.ffi.annotations.Encoding;
 
 /*
 Supported Types
@@ -26,7 +27,9 @@ Pointer - equivalent to void *
 Buffer - equivalent to void *
  */
 public interface Jnr {
+    @Encoding("UTF8")
     public String StringTest();
+    @Encoding("UTF8")
     public String ByteTest();
     public int IntTest();
     public int IntInTest(int a);

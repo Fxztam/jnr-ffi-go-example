@@ -13,13 +13,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println(JNR.StringTest());
-        System.out.println(JNR.ByteTest());
-        try {
-            System.out.println(new String(JNR.ByteTest().getBytes(),"UTF-8"));
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
+        System.out.printf("String from GOString %s\n",JNR.StringTest());
+        System.out.printf("char from GoString %s\n",JNR.ByteTest());
         JNR.ToStringTest("发给 go a123");
         System.out.println(JNR.IntTest());
         System.out.println(JNR.IntInTest(100));
