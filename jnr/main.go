@@ -9,7 +9,7 @@ func StringTest() string {
 
 //export ByteTest
 func ByteTest() *C.char {
-	return C.CString("12344")
+	return C.CString("来自go")
 
 }
 
@@ -17,7 +17,10 @@ func ByteTest() *C.char {
 func IntTest() int {
 	return 1024
 }
-
+//export ToStringTest
+func ToStringTest(c *C.char)  {
+	println(C.GoString(c))
+}
 //export IntInTest
 func IntInTest(a int) int {
 	return 1024 * a

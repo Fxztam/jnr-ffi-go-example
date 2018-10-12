@@ -20,6 +20,7 @@ public class Main {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
+        JNR.ToStringTest("发给 go a123");
         System.out.println(JNR.IntTest());
         System.out.println(JNR.IntInTest(100));
     }

@@ -23,3 +23,12 @@ dependencies {
 }
 apply plugin: 'application'
 mainClassName='cn.zenliu.jnr.example.Main'
+jar{
+    manifest {
+        attributes "Main-Class": mainClassName
+    }
+
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}

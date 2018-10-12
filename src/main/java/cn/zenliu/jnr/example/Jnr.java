@@ -1,4 +1,7 @@
 package cn.zenliu.jnr.example;
+
+
+
 /*
 Supported Types
 All Java primitives are mapped simply to the equivalent C types.
@@ -27,4 +30,5 @@ public interface Jnr {
     public String ByteTest();
     public int IntTest();
     public int IntInTest(int a);
+    public void ToStringTest(String a);
 }
