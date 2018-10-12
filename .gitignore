@@ -1,0 +1,7 @@
+# Created by .ignore support plugin (hsz.mobi)
+/build/
+/.idea/
+/jnr.h
+/jnr.dll
+/.gradle/
+/jnr/.gogradle/

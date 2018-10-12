@@ -1,0 +1,68 @@
+group 'cn.zenliu.jnr'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    repositories {
+        maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter/' }
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url 'https://plugins.gradle.org/m2/' }
+        maven { url 'https://maven.google.com' }
+    }
+    dependencies {
+        classpath "gradle.plugin.com.github.blindpirate:gogradle:0.10.2"
+    }
+}
+apply plugin: "com.github.blindpirate.gogradle"
+golang {
+    packagePath = 'github.com/ZenLiuCn/jnr' // 欲构建项目的go import path，注意不是本地目录的路径！
+    buildMode = 'REPRODUCIBLE'
+    goVersion = '1.11'
+    goExecutable = "D:\\Dev\\env\\golang\\go.1.11X64\\bin\\go.exe"
+//    goRoot = '/path/to/my/goroot'
+//    buildTags = ['appengine','anothertag']
+}
+/*repositories {
+    golang {
+        root 'github.com/gebi/laowang'
+        url 'https://github.com/my/laowang.git'
+        vcs 'git' // 默认值是git,因此可省略
+    }
+}*/
+/*repositories {
+    golang {
+        root ~/github\.com\/[\w-]+\/[\w-]+/  // 任何匹配这个正则表达式的路径，都传递给url闭包处理，得到替换后的url。
+        url { path->
+            def split = path.split('/')
+            "https://my-repo.com/${split[1]}/${split[2]}"
+        }
+    }
+}*/
+/*build {
+    // 交叉编译的输出选项，注意，要求go 1.5+
+    targetPlatform = ['windows-amd64', 'linux-amd64', 'linux-386']
+
+    // 输出文件的路径，可以是绝对路径（相对于项目目录）或者相对路径
+    // 其中的${}占位符会在交叉编译时被渲染
+    outputLocation = './.gogradle/${GOOS}_${GOARCH}_${PROJECT_NAME}${GOEXE}'
+}*/
+build {
+    go 'build -o ../jnr.dll -buildmode=c-shared  github.com/ZenLiuCn/jnr'
+}
+dependencies {
+    golang {
+//        build 'github.com/mattn/go-sqlite3@v1.9.0'
+/*        build 'github.com/user/project'  // No specific version, the latest will be used
+        build name:'github.com/user/project' // Equivalent to last line
+
+        build 'github.com/user/project@1.0.0-RELEASE' // Specify a version(tag in Git)
+        build name:'github.com/user/project', tag:'1.0.0-RELEASE' // Equivalent to last line
+
+        build 'github.com/user/project@master' // Specify a branch
+        build name:'github.com/user/project', branch:'master' // Equivalent to last line
+
+        test 'github.com/user/project#d3fbe10ecf7294331763e5c219bb5aa3a6a86e80' // Specify a commit
+        test name:'github.com/user/project', commit:'d3fbe10ecf7294331763e5c219bb5aa3a6a86e80' // Equivalent to last line
+        test name:'github.com/user/project', version:'d3fbe10ecf7294331763e5c219bb5aa3a6a86e80' // Equivalent to last line*/
+    }
+}
+
