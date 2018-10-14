@@ -1,28 +1,30 @@
 plugins {
     id 'java'
+    id 'application'
+    id 'org.jetbrains.kotlin.jvm' version '1.2.71'
 }
 
-group 'cn.zenliu.jnr'
+group 'cn.zenliu.example'
 version '1.0-SNAPSHOT'
 
 sourceCompatibility = 1.8
-
+mainClassName='cn.zenliu.example.jnr.kt.MainKt'
 repositories {
-    maven { url 'http://maven.aliyun.com/nexus/content/repositories/jcenter/' }
-    maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
-    maven { url 'https://plugins.gradle.org/m2/' }
-    maven { url 'https://maven.google.com' }
     mavenCentral()
 }
 
 dependencies {
-    // https://mvnrepository.com/artifact/com.github.jnr/jnr-ffi
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     compile group: 'com.github.jnr', name: 'jnr-ffi', version: '2.1.9'
-
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
-apply plugin: 'application'
-mainClassName='cn.zenliu.jnr.example.Main'
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
 jar{
     manifest {
         attributes "Main-Class": mainClassName

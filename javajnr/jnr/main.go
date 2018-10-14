@@ -4,11 +4,11 @@ import "C"
 
 //export StringTest
 func StringTest() string {
-	return "12345"
+	return "go string 12345"
 }
 
-//export ByteTest
-func ByteTest() *C.char {
+//export CharTest
+func CharTest() *C.char {
 	return C.CString("来自go")
 
 }
@@ -24,6 +24,9 @@ func ToStringTest(c *C.char)  {
 //export IntInTest
 func IntInTest(a int) int {
 	return 1024 * a
+}
+func BytesFromJava(byte *C.uchar)  {
+
 }
 func main() {
 

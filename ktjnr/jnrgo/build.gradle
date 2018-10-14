@@ -1,0 +1,36 @@
+plugins{
+    id 'com.github.blindpirate.gogradle' version '0.10.2'
+}
+golang {
+    packagePath = 'github.com/ZenLiuCn/jnr' // 欲构建项目的go import path，注意不是本地目录的路径！
+    buildMode = 'REPRODUCIBLE'
+    goVersion = '1.11'
+    goExecutable = "D:\\Dev\\env\\golang\\go.1.11X64\\bin\\go.exe"
+//    goRoot = '/path/to/my/goroot'
+//    buildTags = ['appengine','anothertag']
+}
+build {
+    go 'build -o ../jnr.dll -buildmode=c-shared  github.com/ZenLiuCn/jnr'
+}
+dependencies {
+    golang {
+//        build 'github.com/mattn/go-sqlite3@v1.9.0'
+/*        build 'github.com/user/project'  // No specific version, the latest will be used
+        build name:'github.com/user/project' // Equivalent to last line
+
+        build 'github.com/user/project@1.0.0-RELEASE' // Specify a version(tag in Git)
+        build name:'github.com/user/project', tag:'1.0.0-RELEASE' // Equivalent to last line
+
+        build 'github.com/user/project@master' // Specify a branch
+        build name:'github.com/user/project', branch:'master' // Equivalent to last line
+
+        test 'github.com/user/project#d3fbe10ecf7294331763e5c219bb5aa3a6a86e80' // Specify a commit
+        test name:'github.com/user/project', commit:'d3fbe10ecf7294331763e5c219bb5aa3a6a86e80' // Equivalent to last line
+        test name:'github.com/user/project', version:'d3fbe10ecf7294331763e5c219bb5aa3a6a86e80' // Equivalent to last line*/
+    }
+}
+
+dependencies {
+    golang {
+    }
+}

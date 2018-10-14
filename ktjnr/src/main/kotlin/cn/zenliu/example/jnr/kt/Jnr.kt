@@ -1,7 +1,7 @@
-package cn.zenliu.jnr.example;
+package cn.zenliu.example.jnr.kt
 
-
-import jnr.ffi.annotations.Encoding;
+import jnr.ffi.Struct
+import jnr.ffi.annotations.Encoding
 
 /*
 Supported Types
@@ -25,13 +25,17 @@ In addition, the following Java types are mapped to a C pointer
 String - equivalent to const char *
 Pointer - equivalent to void *
 Buffer - equivalent to void *
+
+Encodeing()
  */
-public interface Jnr {
+interface Jnr {
+    class GoTime(rt: jnr.ffi.Runtime) : Struct(rt) {
+        var wall: Signed64? = null
+        var ext: Signed64? = null
+        var loc: Pointer? = null
+    }
+
     @Encoding("UTF8")
-    public String StringTest();
-    @Encoding("UTF8")
-    public String ByteTest();
-    public int IntTest();
-    public int IntInTest(int a);
-    public void ToStringTest(String a);
+    fun Time(): String
+    fun Time2(): GoTime
 }
