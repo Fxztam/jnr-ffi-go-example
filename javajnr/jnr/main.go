@@ -25,8 +25,9 @@ func ToStringTest(c *C.char)  {
 func IntInTest(a int) int {
 	return 1024 * a
 }
-func BytesFromJava(byte *C.uchar)  {
-
+//export BytesFromJava
+func BytesFromJava(bytes *C.char,len C.int)*C.char  {
+	return C.CString(string(C.GoBytes(unsafe.Pointer(bytes),len)))
 }
 func main() {
 
