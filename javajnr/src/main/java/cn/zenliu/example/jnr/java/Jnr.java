@@ -31,6 +31,9 @@ public interface Jnr {
     public String StringTest();
     @Encoding("UTF8")
     public String CharTest();
+    @Encoding("UTF8")
+    public String BytesFromJava(byte[] bytes,int len);
+    
     public int IntTest();
     public int IntInTest(int a);
     public void ToStringTest(String a);
