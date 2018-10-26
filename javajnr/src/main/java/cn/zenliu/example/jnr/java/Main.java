@@ -15,6 +15,9 @@ public class Main {
         System.out.printf("char from GoString %s\n",JNR.CharTest());
         JNR.ToStringTest("发给 go a123");
         System.out.printf("int from go %d\n",JNR.IntTest());
+        byte[] some="BYTEDATA".toBytes();
+        System.out.printf("bytes to  go string from go %d\n",JNR.BytesFromJava(some,some.length));
+        
         System.out.printf("int to from go %d\n",JNR.IntInTest(100));
     }
 }
